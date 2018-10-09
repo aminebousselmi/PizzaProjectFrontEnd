@@ -13,6 +13,6 @@ export class PizzaListComponent implements OnInit {
   constructor(private pizzaService: PizzaService) { }
 
   ngOnInit() {
-    this.pizzaService.listPizzas().subscribe( pizzas => this.pizzaParent = pizzas)
+    this.pizzaService.listPizzas().subscribe( pizzas => this.pizzaParent = pizzas);
   }
 }
