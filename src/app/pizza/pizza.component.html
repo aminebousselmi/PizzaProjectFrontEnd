@@ -2,12 +2,14 @@
   <div class="col-8">
     <h2>{{pizza.name | titlecase}}</h2>
     <p>{{pizza.price}} €</p>
+    <a class="btn btn-info" routerLink="/pizza/{{pizza.id}}">
+      Details
+    </a>
   </div>
 
   <div class="col">
       <img [src]="pizza.url">
   </div>
-
 </div>
 
 <!--<button (click)="modifyPizza()">Modifier</button>-->

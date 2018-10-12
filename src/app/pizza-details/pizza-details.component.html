@@ -1,3 +1,11 @@
-<p>
-  pizza-details works!
-</p>
+<div class="card text-center">
+  <div class="card-header">
+    {{pizza?.name}}
+  </div>
+  <div class="card-body">
+    <img [src]="pizza?.url">
+  </div>
+  <div class="card-footer text-muted">
+    {{pizza?.price}} €
+  </div>
+</div>
