@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { PizzaService } from '../pizza.service';
 import { PayPalConfig, PayPalEnvironment, PayPalIntegrationType } from 'ngx-paypal';
 import { Observable } from 'rxjs';
+import { OrderService } from '../REST';
 
 @Component({
   selector: 'app-pizza-details',
@@ -15,7 +16,7 @@ export class PizzaDetailsComponent implements OnInit {
     pizza: Pizza;
  
 
-  constructor(private activateRoute: ActivatedRoute,private pizzaService: PizzaService) { }
+  constructor(private activateRoute: ActivatedRoute,private pizzaService: PizzaService,private orderService:OrderService) { }
 
   ngOnInit() {
       this.getPizza();
@@ -27,6 +28,7 @@ export class PizzaDetailsComponent implements OnInit {
     
 }
 
+
     initConfig(): void {
         this.payPalConfig = new PayPalConfig(PayPalIntegrationType.ClientSideREST, PayPalEnvironment.Sandbox, {
           commit: true,
@@ -37,7 +39,7 @@ export class PizzaDetailsComponent implements OnInit {
             label: 'paypal',
           },
           onPaymentComplete: (data, actions) => {
-            console.log('OnPaymentComplete');
+            console.log(data,actions);
           },
           onCancel: (data, actions) => {
             console.log('OnCancel');
