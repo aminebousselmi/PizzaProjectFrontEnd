@@ -5,24 +5,28 @@ exports.handler = function(event, context, callback) {
 
   callback(null, {
   statusCode: 200,
-  body: "Commande creer"
+  body: "commande crée"
   });
+
+   //Read the IPN message sent from PayPal and prepend 'cmd=_notify-validate'
+   var body = 'cmd=_notify-validate&' + event.body;
 
    console.log('Verifying');
    console.log(body);
 
    var options = {
-       url: 'https://lpa2sgadot.herokuapp.com/orders',
+       url: 'https://lpa2sgadot.herokuapp.com/order',
        method: 'POST',
        headers: {
            'Connection': 'close',
-           "accept": "application/json",
-           "Content-Type": "application/json" 
+           'accept': 'application/json', 
+           'Content-Type': 'application/json'
        },
        body: "{ \"client_name\": \"robert Dupond\", \"client_adress\": \"3 rue des alouettes Trifouilly les oies\", \"pizzas\": [ 0 ]}",
        strictSSL: true,
        rejectUnauthorized: false,
        requestCert: true,
        agent: false
-   };
-}
+    };
+
+  }
