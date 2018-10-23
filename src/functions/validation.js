@@ -2,7 +2,7 @@
  * Created by chrissewell on 31/10/2016.
  */
 
-const request = require('request');
+//const request = require('request');
 
 exports.handler = (event, context, callback) => {
     console.log('Received event:', JSON.stringify(event, null, 2));
@@ -21,7 +21,7 @@ exports.handler = (event, context, callback) => {
     console.log(body);
 
     var options = {
-        url: 'https://www.sandbox.paypal.com/cgi-bin/webscr',
+        url: 'https://ipnpb.sandbox.paypal.com/cgi-bin/webscr',
         method: 'POST',
         headers: {
             'Connection': 'close'
