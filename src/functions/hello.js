@@ -15,12 +15,14 @@ exports.handler = function(event, context, callback) {
    console.log(body);
 
    var options = {
-       url: 'https://ipnpb.sandbox.paypal.com/cgi-bin/webscr',
+       url: 'https://editor.swagger.io/v1/ordersa',
        method: 'POST',
        headers: {
-           'Connection': 'close'
+           'Connection': 'close',
+           "accept": "application/json",
+           "Content-Type": "application/json" 
        },
-       body: body,
+       body: "{ \"client_name\": \"robert Dupond\", \"client_adress\": \"3 rue des alouettes Trifouilly les oies\", \"pizzas\": [ 0 ]}",
        strictSSL: true,
        rejectUnauthorized: false,
        requestCert: true,
